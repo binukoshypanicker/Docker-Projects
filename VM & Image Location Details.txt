@@ -1,0 +1,1 @@
+C:\Users\Shaji\.docker\machine\machines\default

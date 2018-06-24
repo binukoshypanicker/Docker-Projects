@@ -1,0 +1,313 @@
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+$ pwd
+/g/Docker-Directory/Projects
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+$ ls
+my-first-app/
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+$ cd my-first-app/
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ ls
+app.py  Dockerfile  requirements.txt
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker build -t friendlyhello .
+Sending build context to Docker daemon   5.12kB
+Step 1/7 : FROM python:2.7-slim
+2.7-slim: Pulling from library/python
+f2aa67a397c4: Already exists
+e2199a29f304: Pull complete
+268f45f063ba: Pull complete
+349902594a9c: Pull complete
+Digest: sha256:703bb6080c6a364d99d2dcac6ba559859efaa590de39616a5605bbf5e312a234
+Status: Downloaded newer image for python:2.7-slim
+ ---> d0d1b97dd328
+Step 2/7 : WORKDIR /app
+Removing intermediate container b2f71e3baf7e
+ ---> 3d22380cf27f
+Step 3/7 : ADD . /app
+ ---> 6c73e9e0942d
+Step 4/7 : RUN pip install --trusted-host pypi.python.org -r requirements.txt
+ ---> Running in 5b0b3b34e03d
+Collecting Flask (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/7f/e7/08578774ed4536d3242b
+14dacb4696386634607af824ea997202cd0edb4b/Flask-1.0.2-py2.py3-none-any.whl (91kB)
+Collecting Redis (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/3b/f6/7a76333cf0b9251ecf49
+efff635015171843d9b977e4ffcf59f9c4428052/redis-2.10.6-py2.py3-none-any.whl (64kB
+)
+Collecting itsdangerous>=0.24 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/dc/b4/a60bcdba945c00f6d608
+d8975131ab3f25b22f2bcfe1dab221165194b2d4/itsdangerous-0.24.tar.gz (46kB)
+Collecting Jinja2>=2.10 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/7f/ff/ae64bacdfc95f27a016a
+7bed8e8686763ba4d277a78ca76f32659220a731/Jinja2-2.10-py2.py3-none-any.whl (126kB
+)
+Collecting Werkzeug>=0.14 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29
+c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (3
+22kB)
+Collecting click>=5.1 (from Flask->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/34/c1/8806f99713ddb993c536
+6c362b2f908f18269f8d792aff1abfd700775a77/click-6.7-py2.py3-none-any.whl (71kB)
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.10->Flask->-r requirements.txt (line
+ 1))
+  Downloading https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680
+822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz
+Building wheels for collected packages: itsdangerous, MarkupSafe
+  Running setup.py bdist_wheel for itsdangerous: started
+  Running setup.py bdist_wheel for itsdangerous: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/2c/4a/61/5599631c1554768c6290b08c
+02c72d7317910374ca602ff1e5
+  Running setup.py bdist_wheel for MarkupSafe: started
+  Running setup.py bdist_wheel for MarkupSafe: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/33/56/20/ebe49a5c612fffe1c5a63214
+6b16596f9e64676768661e4e46
+Successfully built itsdangerous MarkupSafe
+Installing collected packages: itsdangerous, MarkupSafe, Jinja2, Werkzeug, click
+, Flask, Redis
+Successfully installed Flask-1.0.2 Jinja2-2.10 MarkupSafe-1.0 Redis-2.10.6 Werkz
+eug-0.14.1 click-6.7 itsdangerous-0.24
+Removing intermediate container 5b0b3b34e03d
+ ---> fb6b05a040a4
+Step 5/7 : EXPOSE 80
+ ---> Running in fca4bd63684a
+Removing intermediate container fca4bd63684a
+ ---> f53a8d54f531
+Step 6/7 : ENV NAME World
+ ---> Running in ce35a3ae8343
+Removing intermediate container ce35a3ae8343
+ ---> ed52cc08d191
+Step 7/7 : CMD ["python", "app.py"]
+ ---> Running in e18cd3b9795a
+Removing intermediate container e18cd3b9795a
+ ---> 22db6b655efb
+Successfully built 22db6b655efb
+Successfully tagged friendlyhello:latest
+SECURITY WARNING: You are building a Docker image from Windows against a non-Win
+dows Docker host. All files and directories added to build context will have '-r
+wxr-xr-x' permissions. It is recommended to double check and reset permissions f
+or sensitive files and directories.
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker image ls
+REPOSITORY             TAG                 IMAGE ID            CREATED
+   SIZE
+friendlyhello          latest              22db6b655efb        48 seconds ago
+   132MB
+postgres               latest              65bf726222e1        2 weeks ago
+   236MB
+python                 2.7-slim            d0d1b97dd328        2 weeks ago
+   120MB
+nginx                  latest              cd5239a0906a        2 weeks ago
+   109MB
+hello-world            latest              e38bc07ac18e        2 months ago
+   1.85kB
+seqvence/static-site   latest              f589ccde7957        2 years ago
+   191MB
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker info
+Containers: 12
+ Running: 0
+ Paused: 0
+ Stopped: 12
+Images: 11
+Server Version: 18.05.0-ce
+Storage Driver: aufs
+ Root Dir: /mnt/sda1/var/lib/docker/aufs
+ Backing Filesystem: extfs
+ Dirs: 56
+ Dirperm1 Supported: true
+Logging Driver: json-file
+Cgroup Driver: cgroupfs
+Plugins:
+ Volume: local
+ Network: bridge host macvlan null overlay
+ Log: awslogs fluentd gcplogs gelf journald json-file logentries splunk syslog
+Swarm: inactive
+Runtimes: runc
+Default Runtime: runc
+Init Binary: docker-init
+containerd version: 773c489c9c1b21a6d78b5c538cd395416ec50f88
+runc version: 4fc53a81fb7c994640722ac585fa9ca548971871
+init version: 949e6fa
+Security Options:
+ seccomp
+  Profile: default
+Kernel Version: 4.9.93-boot2docker
+Operating System: Boot2Docker 18.05.0-ce (TCL 8.2.1); HEAD : b5d6989 - Thu May 1
+0 16:35:28 UTC 2018
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 995.6MiB
+Name: default
+ID: OEIS:ALUO:6ZBM:5OEZ:DPUV:XGB5:LYN2:BXP7:DDBV:YALE:FL5U:ODC6
+Docker Root Dir: /mnt/sda1/var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Username: binukoshy2018
+Registry: https://index.docker.io/v1/
+Labels:
+ provider=virtualbox
+Experimental: false
+Insecure Registries:
+ 127.0.0.0/8
+Live Restore Enabled: false
+
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ pwd
+/g/Docker-Directory/Projects/my-first-app
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker run -p 4000:80 friendlyhello
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+192.168.99.1 - - [24/Jun/2018 12:14:27] "GET / HTTP/1.1" 200 -
+192.168.99.1 - - [24/Jun/2018 12:14:27] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.99.1 - - [24/Jun/2018 12:15:45] "GET / HTTP/1.1" 200 -
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker-machine ip
+192.168.99.100
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED
+STATUS              PORTS                  NAMES
+d9e788ee963d        friendlyhello       "python app.py"     5 minutes ago
+Up 5 minutes        0.0.0.0:4000->80/tcp   vibrant_archimedes
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container stop d9e788ee963d
+d9e788ee963d
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker run -d -p 4000:80 friendlyhello
+8240d96d8398d6fb0b89cf660f2ddfdf4b6602678ba645eebb50a151d3ac609f
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED
+STATUS              PORTS                  NAMES
+8240d96d8398        friendlyhello       "python app.py"     58 seconds ago
+Up 55 seconds       0.0.0.0:4000->80/tcp   musing_poincare
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container stop 8240d96d8398
+8240d96d8398
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED
+STATUS              PORTS               NAMES
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$
+
+======================================================================
+
+http://192.168.99.100:4000/
+
+Hello World!
+Hostname: 8240d96d8398
+Visits: cannot connect to Redis, counter disabled
+
+======================================================================
+
+C:\Users\Shaji>curl http://192.168.99.100:4000
+<h3>Hello World!</h3><b>Hostname:</b> d9e788ee963d<br/><b>Visits:</b> <i>cannot
+connect to Redis, counter disabled</i>
+C:\Users\Shaji>
+
+======================================================================
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't
+have a Docker ID, head over to https://hub.docker.com to create one.
+Username (binukoshy2018): binukoshy2018
+Password:
+Login Succeeded
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker tag image binukoshy2018/get-started:part2
+Error response from daemon: No such image: image:latest
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker tag friendlyhello binukoshy2018/get-started:part2
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker image ls
+REPOSITORY                  TAG                 IMAGE ID            CREATED
+        SIZE
+binukoshy2018/get-started   part2               22db6b655efb        About an hou
+r ago   132MB
+friendlyhello               latest              22db6b655efb        About an hou
+r ago   132MB
+postgres                    latest              65bf726222e1        2 weeks ago
+        236MB
+python                      2.7-slim            d0d1b97dd328        2 weeks ago
+        120MB
+nginx                       latest              cd5239a0906a        2 weeks ago
+        109MB
+hello-world                 latest              e38bc07ac18e        2 months ago
+        1.85kB
+seqvence/static-site        latest              f589ccde7957        2 years ago
+        191MB
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker push binukoshy2018/get-started:part2
+The push refers to repository [docker.io/binukoshy2018/get-started]
+f405a9bcdffb: Pushed
+4bf0baee8bec: Pushed
+e0b090565a0e: Pushed
+20f93bdcee9c: Mounted from library/python
+21b24882d499: Mounted from library/python
+db9dabc5cfee: Mounted from library/python
+d626a8ad97a1: Mounted from library/python
+part2: digest: sha256:dfaefed7629bc1154d804508bd6a815cf774b1ff5ed2c6f8f8b1631e25
+43421b size: 1787
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker run -p 4000:80 binukoshy2018/get-started:part2
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+192.168.99.1 - - [24/Jun/2018 12:46:33] "GET / HTTP/1.1" 200 -
+192.168.99.1 - - [24/Jun/2018 12:46:37] "GET / HTTP/1.1" 200 -
+192.168.99.1 - - [24/Jun/2018 12:46:39] "GET / HTTP/1.1" 200 -
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container ls
+CONTAINER ID        IMAGE                             COMMAND             CREATE
+D             STATUS              PORTS                  NAMES
+43442882368c        binukoshy2018/get-started:part2   "python app.py"     46 sec
+onds ago      Up 44 seconds       0.0.0.0:4000->80/tcp   adoring_wozniak
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container stop 43442882368c
+43442882368c
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$ docker container ls
+CONTAINER ID        IMAGE               COMMAND             CREATED
+STATUS              PORTS               NAMES
+
+Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+$

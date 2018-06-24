@@ -1,1 +1,1 @@
-C:\Users\Shaji\.docker\machine\machines\default
+C:\Users\<user-account-name>\.docker\machine\machines\default

@@ -1,19 +1,19 @@
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+@IdeaPad MINGW64 /g/Docker-Directory/Projects
 $ pwd
 /g/Docker-Directory/Projects
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+@IdeaPad MINGW64 /g/Docker-Directory/Projects
 $ ls
 my-first-app/
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects
+@IdeaPad MINGW64 /g/Docker-Directory/Projects
 $ cd my-first-app/
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ ls
 app.py  Dockerfile  requirements.txt
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker build -t friendlyhello .
 Sending build context to Docker daemon   5.12kB
 Step 1/7 : FROM python:2.7-slim
@@ -92,7 +92,7 @@ dows Docker host. All files and directories added to build context will have '-r
 wxr-xr-x' permissions. It is recommended to double check and reset permissions f
 or sensitive files and directories.
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker image ls
 REPOSITORY             TAG                 IMAGE ID            CREATED
    SIZE
@@ -109,7 +109,7 @@ hello-world            latest              e38bc07ac18e        2 months ago
 seqvence/static-site   latest              f589ccde7957        2 years ago
    191MB
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker info
 Containers: 12
  Running: 0
@@ -160,11 +160,11 @@ Insecure Registries:
 Live Restore Enabled: false
 
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ pwd
 /g/Docker-Directory/Projects/my-first-app
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker run -p 4000:80 friendlyhello
  * Serving Flask app "app" (lazy loading)
  * Environment: production
@@ -176,42 +176,42 @@ $ docker run -p 4000:80 friendlyhello
 192.168.99.1 - - [24/Jun/2018 12:14:27] "GET /favicon.ico HTTP/1.1" 404 -
 192.168.99.1 - - [24/Jun/2018 12:15:45] "GET / HTTP/1.1" 200 -
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker-machine ip
 192.168.99.100
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED
 STATUS              PORTS                  NAMES
 d9e788ee963d        friendlyhello       "python app.py"     5 minutes ago
 Up 5 minutes        0.0.0.0:4000->80/tcp   vibrant_archimedes
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container stop d9e788ee963d
 d9e788ee963d
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker run -d -p 4000:80 friendlyhello
 8240d96d8398d6fb0b89cf660f2ddfdf4b6602678ba645eebb50a151d3ac609f
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED
 STATUS              PORTS                  NAMES
 8240d96d8398        friendlyhello       "python app.py"     58 seconds ago
 Up 55 seconds       0.0.0.0:4000->80/tcp   musing_poincare
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container stop 8240d96d8398
 8240d96d8398
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED
 STATUS              PORTS               NAMES
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $
 
 ======================================================================
@@ -224,17 +224,17 @@ Visits: cannot connect to Redis, counter disabled
 
 ======================================================================
 
-C:\Users\Shaji>curl http://192.168.99.100:4000
+C:\Users\<user-account-name>>curl http://192.168.99.100:4000
 <h3>Hello World!</h3><b>Hostname:</b> d9e788ee963d<br/><b>Visits:</b> <i>cannot
 connect to Redis, counter disabled</i>
-C:\Users\Shaji>
+C:\Users\<user-account-name>>
 
 ======================================================================
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker login
 Login with your Docker ID to push and pull images from Docker Hub. If you don't
 have a Docker ID, head over to https://hub.docker.com to create one.
@@ -242,14 +242,14 @@ Username (binukoshy2018): binukoshy2018
 Password:
 Login Succeeded
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker tag image binukoshy2018/get-started:part2
 Error response from daemon: No such image: image:latest
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker tag friendlyhello binukoshy2018/get-started:part2
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker image ls
 REPOSITORY                  TAG                 IMAGE ID            CREATED
         SIZE
@@ -268,7 +268,7 @@ hello-world                 latest              e38bc07ac18e        2 months ago
 seqvence/static-site        latest              f589ccde7957        2 years ago
         191MB
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker push binukoshy2018/get-started:part2
 The push refers to repository [docker.io/binukoshy2018/get-started]
 f405a9bcdffb: Pushed
@@ -281,7 +281,7 @@ d626a8ad97a1: Mounted from library/python
 part2: digest: sha256:dfaefed7629bc1154d804508bd6a815cf774b1ff5ed2c6f8f8b1631e25
 43421b size: 1787
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker run -p 4000:80 binukoshy2018/get-started:part2
  * Serving Flask app "app" (lazy loading)
  * Environment: production
@@ -293,21 +293,21 @@ $ docker run -p 4000:80 binukoshy2018/get-started:part2
 192.168.99.1 - - [24/Jun/2018 12:46:37] "GET / HTTP/1.1" 200 -
 192.168.99.1 - - [24/Jun/2018 12:46:39] "GET / HTTP/1.1" 200 -
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container ls
 CONTAINER ID        IMAGE                             COMMAND             CREATE
 D             STATUS              PORTS                  NAMES
 43442882368c        binukoshy2018/get-started:part2   "python app.py"     46 sec
 onds ago      Up 44 seconds       0.0.0.0:4000->80/tcp   adoring_wozniak
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container stop 43442882368c
 43442882368c
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED
 STATUS              PORTS               NAMES
 
-Shaji@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
+@IdeaPad MINGW64 /g/Docker-Directory/Projects/my-first-app
 $
